@@ -13,7 +13,7 @@ namespace PPA_Semana09.Models
         [Required(ErrorMessage = "El correo es obligatorio")]
         // Regla de la práctica: debe contener @ y .
         [RegularExpression(@".+@.+\..+",
-            ErrorMessage = "Debe ser un formato legible de correo electrónico")]
+            ErrorMessage = "Debe contener '@' y '.'")]
         public string Correo { get; set; }
 
         [Required(ErrorMessage = "El teléfono es obligatorio")]
