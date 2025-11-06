@@ -1,0 +1,42 @@
+﻿@model PPA_Semana09.Models.RegistroViewModel
+@{
+    ViewData["Title"] = "Registro competencia";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form id="form-registro" asp-action="Index" method="post" novalidate>
+    <div class="mb-3">
+        <label asp-for="NombreCompleto" class="form-label"></label>
+        <input asp-for="NombreCompleto" class="form-control" />
+        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Correo" class="form-label"></label>
+        <input asp-for="Correo" class="form-control" />
+        <span asp-validation-for="Correo" class="text-danger"></span>
+        <small class="form-text text-muted">Debe contener &#64; y .</small>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Telefono" class="form-label"></label>
+        <input asp-for="Telefono" class="form-control" />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Carrera" class="form-label"></label>
+        <select asp-for="Carrera" asp-items="ViewBag.Carreras" class="form-select">
+            <option value="">-- Seleccione --</option>
+        </select>
+        <span asp-validation-for="Carrera" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrarme</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/registro-validate.js"></script>
+}
